@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All users&#129397;</title>
+    <style>
+        body {
+            background-color: #e0f7fa; /* Светло-голубой фон */
+            font-family: Arial, sans-serif; /* Шрифт */
+            color: #0277bd; /* Темно-голубой цвет текста */
+            margin: 0;
+            padding: 20px;
+        }
+
+        div {
+            margin-bottom: 10px; /* Отступ между пользователями */
+            padding: 10px;
+            border: 1px solid #81d4fa; /* Голубая рамка */
+            border-radius: 5px; /* Закругленные углы */
+            background-color: #b3e5fc; /* Голубой фон для каждого пользователя */
+            transition: background-color 0.3s; /* Плавный переход для фона */
+        }
+
+        div:hover {
+            background-color: #81d4fa; /* Более темный голубой при наведении */
+        }
+
+        a {
+            text-decoration: none; /* Убираем подчеркивание */
+            color: #01579b; /* Цвет ссылок */
+            font-weight: bold; /* Жирный шрифт для ссылок */
+        }
+        #watchAll {
+            text-decoration: none; /* Убираем подчеркивание */
+            color: #01579b; /* Цвет ссылок */
+            font-weight: bold; /* Жирный шрифт для ссылок */
+            display: block; /* Делаем элемент блочным */
+            width: 275px; /* Устанавливаем ширину */
+            margin: 0 auto; /* Центрируем элемент */
+        }
+        a:hover {
+            color: #0288d1; /* Более светлый голубой при наведении на ссылку */
+        }
+    </style>
+</head>
+<body>
+<a id="watchAll" th:inline="text" th:href="@{/user/userOrders}">Watch all users with purchases!</a>
+<div th:each="user : ${AllUsers}">
+    <a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getName()}" style="display: block; padding: 10px; background-color: #b3e5fc; border: 1px solid #81d4fa;"></a>
+</div>
+</body>
+</html>

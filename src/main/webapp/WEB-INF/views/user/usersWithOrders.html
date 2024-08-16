@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All User With Orders!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #007bff;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:hover {
+            background-color: #e0f7fa;
+        }
+    </style>
+</head>
+<body>
+<h1>All User With Orders</h1>
+<table>
+    <thead>
+    <tr>
+        <th>User ID</th>
+        <th>User Name</th>
+        <th>Birth Date</th>
+        <th>Order Nomination</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="userOrder : ${userOrders}">
+        <td th:text="${userOrder.getId()}"></td>
+        <td th:text="${userOrder.getName()}"></td>
+        <td th:text="${userOrder.getBirthdate()}"></td>
+        <td th:text="${userOrder.getPurchase_name()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
